@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Steroid Choice — Profielwerkstuk</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">PROFIELWERKSTUK • 6 VWO</div>
+        <h1>THE STEROID CHOICE</h1>
+      </div>
+      <div class="chapter" id="chapterLabel">START</div>
+    </header>
+
+    <main>
+      <section id="startScreen" class="screen active">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="pill">INTERACTIEVE BESLISSINGSSIMULATIE</span>
+            <h2>Je ziet de spiergroei.<br><span>Maar zie je ook de prijs?</span></h2>
+            <p>
+              Kruip in de huid van Alex, een 19-jarige sporter. Je krijgt tien situaties
+              waarin sport, sociale media, zelfbeeld en gezondheid elkaar beïnvloeden.
+              Jij bepaalt wat er gebeurt.
+            </p>
+            <button class="primary-btn" id="startBtn">START DE SIMULATIE <span>→</span></button>
+            <p class="disclaimer">
+              Educatief model voor een profielwerkstuk. De scores zijn fictief en vormen
+              geen medische voorspelling of persoonlijk gezondheidsadvies.
+            </p>
+          </div>
+
+          <div class="character-card">
+            <div class="avatar portrait-avatar" aria-label="Fictief portret van een willekeurige sporter"></div>
+            <div>
+              <div class="small-label">FICTIEF PERSONAGE</div>
+              <h3>Alex</h3>
+              <p>19 jaar • fitness • traint 5× per week</p>
+            </div>
+            <div class="start-stats">
+              <div><span>💪 Prestatie</span><strong>50</strong></div>
+              <div><span>🧠 Zelfbeeld</span><strong>50</strong></div>
+              <div><span>❤️ Gezondheid</span><strong>90</strong></div>
+              <div><span>👥 Sociale druk</span><strong>20</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="research-strip">
+          <div><strong>Onderzoeksvraag</strong></div>
+          <p>“In hoeverre wegen de voordelen van anabole steroïden op tegen de lichamelijke,
+            mentale en maatschappelijke risico’s van het gebruik ervan?”</p>
+        </div>
+      </section>
+
+      <section id="gameScreen" class="screen">
+        <div class="game-layout">
+          <aside class="stats-panel">
+            <div class="player-mini">
+              <div class="mini-avatar portrait-mini" aria-label="Fictief portret"></div>
+              <div><strong>ALEX</strong><small>19 • SPORTER</small></div>
+            </div>
+
+            <div class="stat" data-stat="performance">
+              <div><span>💪 PRESTATIE</span><b id="performanceValue">50</b></div>
+              <div class="bar"><i id="performanceBar"></i></div>
+            </div>
+            <div class="stat" data-stat="selfimage">
+              <div><span>🧠 ZELFBEELD</span><b id="selfimageValue">50</b></div>
+              <div class="bar"><i id="selfimageBar"></i></div>
+            </div>
+            <div class="stat" data-stat="health">
+              <div><span>❤️ GEZONDHEID</span><b id="healthValue">90</b></div>
+              <div class="bar"><i id="healthBar"></i></div>
+            </div>
+            <div class="stat" data-stat="pressure">
+              <div><span>👥 SOCIALE DRUK</span><b id="pressureValue">20</b></div>
+              <div class="bar"><i id="pressureBar"></i></div>
+            </div>
+            <div class="stat" data-stat="consequences">
+              <div><span>⚖️ CONSEQUENTIES</span><b id="consequencesValue">0</b></div>
+              <div class="bar"><i id="consequencesBar"></i></div>
+            </div>
+
+            <div class="progress-wrap">
+              <div><span>VOORTGANG</span><strong id="progressText">1 / 15</strong></div>
+              <div class="progress-dots" id="progressDots"></div>
+            </div>
+          </aside>
+
+          <section class="scenario-panel">
+            <div class="scenario-meta">
+              <span id="scenarioNumber">SITUATIE 01</span>
+              <span id="scenarioTag">SOCIALE MEDIA</span>
+            </div>
+            <h2 id="scenarioTitle"></h2>
+            <div id="scenarioVisual" class="scenario-visual hidden"></div>
+            <div id="scenarioBody" class="scenario-body"></div>
+            <div id="choices" class="choices"></div>
+            <div id="feedback" class="feedback hidden"></div>
+            <button id="nextBtn" class="primary-btn next-btn hidden">VOLGENDE SITUATIE <span>→</span></button>
+          </section>
+        </div>
+      </section>
+
+      <section id="resultScreen" class="screen">
+        <div class="result-head">
+          <span class="pill">SIMULATIE VOLTOOID</span>
+          <h2>WAS HET HET WAARD?</h2>
+          <p>Dit is jouw eindprofiel. De scores zijn onderdeel van het educatieve model.</p>
+        </div>
+
+        <div class="result-grid">
+          <div class="result-card main-result">
+            <div class="result-ring" id="riskRing"><span id="riskScore">0</span><small>RISICO</small></div>
+            <div>
+              <div class="small-label">JOUW SIMULATIE</div>
+              <h3 id="resultHeadline">Je hebt je keuzes gemaakt.</h3>
+              <p id="resultSummary"></p>
+            </div>
+          </div>
+
+          <div class="result-stats" id="resultStats"></div>
+        </div>
+
+        <div class="balance">
+          <div class="balance-side advantage">
+            <span>WAT JE ZIET</span>
+            <strong>💪 Spiergroei &amp; prestatie</strong>
+            <p>Snellere spiergroei en verbeterde prestaties worden in het onderzoek genoemd als belangrijke redenen voor gebruik.</p>
+          </div>
+          <div class="balance-vs">VS</div>
+          <div class="balance-side risk">
+            <span>WAT JE NIET ALTIJD ZIET</span>
+            <strong>❤️🧠⚙️ Risico’s &amp; gevolgen</strong>
+            <p>Het onderzoek beschrijft lichamelijke, mentale en maatschappelijke risico’s die meewegen in de uiteindelijke afweging.</p>
+          </div>
+        </div>
+
+        <div class="research-conclusion">
+          <div class="small-label">JULLIE ONDERZOEK</div>
+          <h3>De hoofdvraag</h3>
+          <blockquote>
+            “In hoeverre wegen de voordelen van anabole steroïden op tegen de lichamelijke,
+            mentale en maatschappelijke risico’s van het gebruik ervan?”
+          </blockquote>
+          <p>
+            Dit blijkt ook uit ons onderzoek: de voordelen wegen meestal niet
+            opwegen tegen de lichamelijke, mentale en maatschappelijke risico’s. Het product
+            is bedoeld om de bezoeker zelf over die afweging te laten nadenken.
+          </p>
+        </div>
+
+        <div class="reflection-card">
+          <div class="small-label">PERSOONLIJKE REFLECTIE</div>
+          <h3>Wat zeggen jouw keuzes?</h3>
+          <p id="personalReflection"></p>
+          <div id="reflectionBullets" class="reflection-bullets"></div>
+        </div>
+
+        <div class="final-choice">
+          <h3>Wat neem jij mee uit de simulatie?</h3>
+          <div class="final-buttons">
+            <button data-final="advantages">IK KIJK ANDERS NAAR DE VOORDELEN</button>
+            <button data-final="risks">IK KIJK ANDERS NAAR DE RISICO’S</button>
+            <button data-final="complex">IK ZIE NU MEER NUANCE</button>
+          </div>
+          <div id="finalResponse" class="final-response hidden"></div>
+        </div>
+
+        <div class="actions">
+          <button class="secondary-btn" id="restartBtn">↻ OPNIEUW SPELEN</button>
+          <button class="secondary-btn" id="printBtn">⎙ RESULTAAT AFDRUKKEN</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>THE STEROID CHOICE</span>
+      <span>Educatieve simulatie • Profielwerkstuk</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
